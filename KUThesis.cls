@@ -258,6 +258,7 @@
   \newcommand{\@degreeEng}{Master}
 \fi
 
+
 % @command department 
 %
 \newcommand{\department}[2] {%
@@ -275,13 +276,15 @@
          \newcommand{\@degreeName}{컴퓨터$\cdot$電波通信工學}
          \@isLongDeptNametrue} {}
     \ifthenelse{\equal{#1}{CSE}}
-        {\newcommand{\@deptNameEng}{Computer Science Engineering}
-         \newcommand{\@deptNameChn}{컴\ 퓨\ 터\ 學\ 科}
-         \newcommand{\@deptNameKor}{컴퓨터학과}
-         \newcommand{\@deptNameShort}{컴퓨터學}
-         \newcommand{\@degreeName}{컴퓨터學}} {}
+        {\newcommand{\@deptNameEng}{Big Data Convergence}
+         \newcommand{\@deptNameChn}{빅\ 데\ 이\ 터\ 融\ 合\ 學\ 科}
+         \newcommand{\@deptNameKor}{빅\ 데\ 이\ 터\ 融\ 合\ 學\ 科}
+         \newcommand{\@deptNameShort}{빅\ 데\ 이\ 터\ 融\ 合\ 學\ 科}
+         \newcommand{\@degreeName}{빅\ 데\ 이\ 터\ 融\ 合\ 學\ 科}} {}
 }
 \@onlypreamble{\department}
+
+
 
 % @command referee 심사위원 (석사과정 3인, 박사과정 5인)
 \newcommand{\referee}[2][1] {%
@@ -444,32 +447,41 @@
     \thispagestyle{empty}
     \begin{minipage}[t][12mm][t]{112mm}
         \begin{center}
-            \fontsize{16pt}{16pt}\selectfont\bf{Thesis for the Degree\\of \@degreeEng}
+            %\fontsize{16pt}{16pt}\selectfont\bf{Thesis for the Degree\\of \@degreeEng}
+            \fontsize{16pt}{16pt}\selectfont\bf{\@degreeChn\ 士\ 學\ 位\ 論\ 文}
         \end{center}
     \end{minipage}\\[30mm]
     \hspace*{-15mm}\begin{minipage}[t][50mm][t]{142mm}
         \begin{center}
             \fontsize{\@titleSize}{\@titleSize}\selectfont{\bf \@titleEng}
+            \\[15mm]
+            \fontsize{\@titleSize}{\@titleSize}\selectfont{\bf \@titleKor}
         \end{center}
     \end{minipage}\vfill
     \begin{minipage}[b][85mm][b]{112mm}
         \begin{center}
-            \fontsize{16pt}{16pt}\selectfont{\bf by}
+            %\fontsize{16pt}{16pt}\selectfont{\bf by}
+            %\\[5mm]
+            %\fontsize{16pt}{16pt}\selectfont{\bf \@authorEng}
+            %\\[5mm]
+            %\fontsize{16pt}{16pt}\selectfont{\bf Department of \@deptNameEng}
+            %\if@isLongDeptName
+            %  \\[8mm]
+            %\else
+            %  \\[15mm]
+            %\fi
+            %\fontsize{18pt}{18pt}\selectfont{\bf Graduate School}
+            %\\[5mm]
+            %\fontsize{\@univSize}{\@univSize}\selectfont{\bf \@koreauniv}
+            %\\[10mm]
+            %\fontsize{16pt}{16pt}\selectfont{\bf
+            %\@dateUSenglish{\@graduateYear}{\@graduateMonth}}
+            \fontsize{16pt}{16pt}\selectfont{\bf 高 麗 大 學 校 \ 컴퓨터 情 報 通 信 \  大 學 院}
             \\[5mm]
-            \fontsize{16pt}{16pt}\selectfont{\bf \@authorEng}
+            \fontsize{16pt}{16pt}\selectfont{\bf {\@deptNameChn}}
             \\[5mm]
-            \fontsize{16pt}{16pt}\selectfont{\bf Department of \@deptNameEng}
-            \if@isLongDeptName
-              \\[8mm]
-            \else
-              \\[15mm]
-            \fi
-            \fontsize{18pt}{18pt}\selectfont{\bf Graduate School}
-            \\[5mm]
-            \fontsize{\@univSize}{\@univSize}\selectfont{\bf \@koreauniv}
+            \fontsize{16pt}{16pt}\selectfont{\bf {\@authorChn}}
             \\[10mm]
-            \fontsize{16pt}{16pt}\selectfont{\bf
-            \@dateUSenglish{\@graduateYear}{\@graduateMonth}}
         \end{center}
     \end{minipage}
     \addevenpage
@@ -576,11 +588,11 @@
 \newcommand{\makeabstract}{%
   \newpage
   \thispagestyle{empty}
-  \addcontentsline{toc}{chapter}{Abstract}
+  \addcontentsline{toc}{chapter}{요약}
   \pagenumbering{gobble}
   \vspace*{\fill}
   \begin{center}
-    \fontsize{16pt}{16pt}\selectfont{\bf Abstract}
+    \fontsize{16pt}{16pt}\selectfont{\bf 요약}
   \end{center}
 
   \setlength\parindent{5mm}
@@ -647,16 +659,16 @@
   \newpage
   \thispagestyle{empty}
   \if@isKrack
-    \addcontentsline{toc}{chapter}{감사의글}
-  \else
     \addcontentsline{toc}{chapter}{Acknowledgement}
+  \else
+    \addcontentsline{toc}{chapter}{감사의글}
   \fi
   \pagenumbering{gobble}
   \begin{center}
     \if@isKrack
-      \fontsize{16pt}{16pt}\selectfont{\bf 감사의글}
-    \else
       \fontsize{16pt}{16pt}\selectfont{\bf Acknowledgement}
+    \else
+      \fontsize{16pt}{16pt}\selectfont{\bf 감사의글}
     \fi
   \end{center}
   \vspace{5mm}

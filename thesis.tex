@@ -11,7 +11,19 @@
 % \documentclass[master,final,oneside]{KUThesis}
 
 % 기본옵션은 [doctor,twosides,draft] 입니다.
-\documentclass{KUThesis}
+\documentclass[master, final, oneside]{KUThesis}
+
+
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright \normalfont
+
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   아래 정보를 꼭 바꾸세요!                   %
@@ -24,27 +36,27 @@
 % 3 : 제목이 2 셋팅에서도 너무 길 경우
 % 두 번째 인수는 영문 제목, 세 번째 인수는 한글 제목(국문초록 추가할 때 사용)
 \title{2}{
-Research on the fact that I cannot say ``father'' to the real father
+자가 어텐션 및 자가 학습 기법을 활용한 문서 요약
 }{
-아버지를 아버지라 부를 수 없는 사실에 대한 연구
+Text Summarization using Self-Attention and Self-Learning 
 }
 
-% 본인의 이름 성,이름 순으로 한글자씩. 한글 이름은 한칸에 모두 적음.
-\author[korean]{홍길동}{}{}
-\author[chinese]{洪}{吉}{同}
-\author[english]{Hong}{Gil}{Dong}
+% 본인의 이름 성,이름 순으로 한글자씩
+\author[korean]{유}{지}{상}
+\author[chinese]{柳}{知}{相}
+\author[english]{Yu}{Jisang}{}
 
 % 지도교수님 성함 {한자이름}{영문이름}
-\advisor{홍판서}{洪판서}{Pahn Seo Hong}
+\advisor{Choo Jae Gul}{朱 宰 傑}
 
 % 전공
-\department{PH}
+\department{CSE}
 
 % 졸업년월
-\graduateDate{2016}{2}
+\graduateDate{2020}{2}
 
 % 제출 연,월,일
-\submitDate{2015}{12}{30}
+\submitDate{2019}{11}{21}
 
 % 본문 줄간격 (규정: 170 - 200)
 \captionLineSpacing{150}
@@ -66,6 +78,31 @@ Research on the fact that I cannot say ``father'' to the real father
 % 스캔한 승인서가 있을 경우 파일 이름 입력. 스캔 파일의 사이즈는 B5이어야 한다.
 %\approvalScan{}
 
+% 한글버전
+\renewcommand{\contentsname}{목차}
+\renewcommand{\abstractname}{요약}
+\renewcommand{\listfigurename}{그림 목차} 
+\renewcommand{\listtablename}{표 목차}
+\renewcommand{\bibname}{참고 문헌}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb, amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx} % Required for including images
+\graphicspath{{figures/}} % Location of the graphics files
+\usepackage{siunitx}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{dashbox}
+\newcommand\dboxed[1]{\dbox{\ensuremath{#1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                          여기까지!                           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,6 +118,13 @@ Research on the fact that I cannot say ``father'' to the real father
 
 % 꼭 addContents함수를 이용해서 추가해야 양면출력이 제대로 됩니다!
 \addContents{introduction}
+
+\addContents{related}
+
+\addContents{method}
+
+\addContents{analysis}
+
 \addContents{conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
